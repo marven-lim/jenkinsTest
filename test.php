@@ -1,12 +1,13 @@
 <?php
-session_start();
+use PHPUnit\Framework\TestCase;
 include 'checkpw.php';
 
-if (isValidCreds("hi", "no")){
-	echo "a";
-}
-else
+final class checkpwtest extends TestCase
 {
-	echo "b";
+	public function test_credentials(): void
+	{
+		$this->assertTrue(isValidCreds("araradacius","letmein"));
+	}
 }
+
 ?>

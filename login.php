@@ -31,8 +31,6 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	}else{
             if (isValidCreds($uname, $pass)) {
             	$_SESSION['user_name'] = $uname;
-            	$_SESSION['name'] = $pass;
-            	$_SESSION['id'] = "1";
             	header("Location: home.php");
 		        exit();
             }else{

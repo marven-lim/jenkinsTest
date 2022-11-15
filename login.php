@@ -1,14 +1,6 @@
 <?php 
+include 'checkpw.php';
 session_start();
-
-function isValidCreds($uname, $pw){
-	if ($uname==="araradacius"){
-		if ($pw === "letmein"){
-			return true;
-		}
-	}
-	return false;
-}
 
 if (isset($_POST['uname']) && isset($_POST['password'])) {
 
@@ -31,6 +23,8 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	}else{
             if (isValidCreds($uname, $pass)) {
             	$_SESSION['user_name'] = $uname;
+		$_SESSION['name'] = $uname;
+		$_SESSION['id'] = 1;
             	header("Location: home.php");
 		        exit();
             }else{

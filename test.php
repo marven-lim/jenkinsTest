@@ -1,10 +1,12 @@
 <?php
-use PHPUnit\Framework\TestCase;
-require 'login.php';
+session_start();
+include 'checkpw.php';
 
-class LoginTest extends TestCase {
-	public function testLogin(): void
-	{
-		$this->assertTrue(isValidCreds("araradacius", "letmein"));
-	}
+if (isValidCreds("hi", "no")){
+	echo "a";
 }
+else
+{
+	echo "b";
+}
+?>

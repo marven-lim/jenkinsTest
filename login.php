@@ -1,6 +1,15 @@
 <?php 
 session_start();
 
+function isValidCreds($uname, $pw){
+	if ($uname==="araradacius"){
+		if ($pw === "letmein"){
+			return true;
+		}
+	}
+	return false;
+}
+
 if (isset($_POST['uname']) && isset($_POST['password'])) {
 
 	function validate($data){
@@ -20,7 +29,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
         header("Location: index.php?error=Password is required");
 	    exit();
 	}else{
-            if ("araradacius" === $uname && "letmein" === $pass) {
+            if (isValidCreds($uname, $pass)) {
             	$_SESSION['user_name'] = $uname;
             	$_SESSION['name'] = $pass;
             	$_SESSION['id'] = "1";

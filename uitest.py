@@ -16,7 +16,7 @@ def test_valid_login():
 	browser = webdriver.Chrome(options=options)
 	browser.get(url+"index.php")
 	browser.find_element(By.NAME, "uname").send_keys("araradacius")
-        browser.find_element(By.NAME, "password").send_keys("letmein")
+	browser.find_element(By.NAME, "password").send_keys("letmein")
 	browser.find_element(By.NAME, "submit").click()
 	assert "home.php" in browser.current_url
 def test_invalid_login():
@@ -28,6 +28,6 @@ def test_invalid_login():
 	browser = webdriver.Chrome(options=options)
 	browser.get(url+"index.php")
 	browser.find_element(By.NAME, "uname").send_keys("aradacius")
-        browser.find_element(By.NAME, "password").send_keys("letyouin")
+	browser.find_element(By.NAME, "password").send_keys("letyouin")
 	browser.find_element(By.NAME, "submit").click()
 	assert "index.php?error=" in browser.current_url
